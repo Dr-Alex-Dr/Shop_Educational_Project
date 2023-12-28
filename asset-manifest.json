@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/Shop_Educational_Project/static/js/main.5745bcd5.js",
-    "index.html": "/Shop_Educational_Project/index.html",
-    "main.5745bcd5.js.map": "/Shop_Educational_Project/static/js/main.5745bcd5.js.map"
+    "main.js": "/static/js/main.5745bcd5.js",
+    "index.html": "/index.html",
+    "main.5745bcd5.js.map": "/static/js/main.5745bcd5.js.map"
   },
   "entrypoints": [
     "static/js/main.5745bcd5.js"
