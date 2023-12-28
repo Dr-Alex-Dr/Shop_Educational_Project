@@ -16,9 +16,10 @@ interface GoodInfo {
     }
 }
 
-export const Catalog = () => {
+export function Catalog() {
     const [goods, setGoods] = useState<GoodInfo[]>([])
-    const [currentCategory, useCurrentCategory] = useState<string>('')
+    const [currentCategory, setCurrentCategory] = useState('')
+
 
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products`)
@@ -30,11 +31,24 @@ export const Catalog = () => {
         })
     }, [])
 
+    useEffect(() => {
+        console.log(currentCategory)
+        fetch(`https://fakestoreapi.com/products/${currentCategory}`)
+        .then((res) => {
+            return res.json()
+        })
+        .then((res) => {
+            setGoods(res)
+        })
+
+        
+    }, [currentCategory])
+
     return (
         <div>
             <TopBar/>
             <div style={{display: 'flex'}}>
-                <Categories />
+                <Categories setCurrentCategory={setCurrentCategory}/>
                 
                 <div style={{display: 'flex', flexDirection: 'column', padding: '100px 30px 0 200px'}}>
                 {

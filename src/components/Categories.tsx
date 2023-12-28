@@ -3,9 +3,10 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
-export function Categories() {
-    const [categories, setCategories] = useState<string[]>([])
+
+export function Categories({setCurrentCategory}: any) {
     const [value, setValue] = useState(0);
+    const [categories, setCategories] = useState<string[]>([])
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products/categories')
@@ -17,8 +18,10 @@ export function Categories() {
         })
     }, [])
 
+
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
+        
     };
 
   return (
@@ -30,10 +33,10 @@ export function Categories() {
             aria-label="Vertical tabs example"
             sx={{ borderRight: 1, borderColor: 'divider' }}
         >
-            <Tab label='All' onClick={() => {}}/>
+            <Tab label='All' onClick={() => {setCurrentCategory('/')}}/>
             {
-                categories.map((item, index) => (
-                    <Tab key={index} label={item} onClick={() => {}}/>
+                categories.map((item: any, index: any) => (
+                    <Tab key={index} label={item} onClick={() => {setCurrentCategory(`/category/${item}`)}}/>
                 ))
             }
       </Tabs>
