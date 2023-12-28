@@ -54,8 +54,29 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export function TopBar() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+
+interface GoodInfo {
+    id: number,
+    title: string,
+    price: number,
+    description: string,
+    category: string,
+    image: string,
+    rating: {
+        rate: number,
+        count: number
+    }
+}
+
+interface ProductsArray {
+    favourites: GoodInfo[]
+    cart: GoodInfo[]
+    handleOpenCartModal: any
+}
+
+
+export function TopBar({favourites, cart, handleOpenCartModal}: ProductsArray) {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
 
@@ -88,8 +109,8 @@ export function TopBar() {
       
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
+        <IconButton onClick={handleOpenCartModal} size="large" aria-label="show 4 new mails" color="inherit">
+          <Badge badgeContent={cart.length} color="error">
             <ShoppingBagOutlinedIcon />
           </Badge>
         </IconButton>
@@ -101,7 +122,7 @@ export function TopBar() {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
+          <Badge badgeContent={favourites.length} color="error">
             <FavoriteBorderOutlinedIcon />
           </Badge>
         </IconButton>
@@ -111,7 +132,7 @@ export function TopBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, position: 'fixed', width: '100%'}}>
+    <Box sx={{ flexGrow: 1, position: 'fixed', width: '100%', zIndex: 1}}>
       <AppBar position="static">
         <Toolbar>
           
@@ -134,8 +155,8 @@ export function TopBar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={0} color="error">
+            <IconButton onClick={handleOpenCartModal} size="large" aria-label="show 4 new mails" color="inherit">
+              <Badge badgeContent={cart.length} color="error">
                 <ShoppingBagOutlinedIcon />
               </Badge>
             </IconButton>
@@ -144,7 +165,7 @@ export function TopBar() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={1} color="error">
+              <Badge badgeContent={favourites.length} color="error">
                 <FavoriteBorderOutlinedIcon />
               </Badge>
             </IconButton>

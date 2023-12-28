@@ -25,7 +25,7 @@ export function Categories({setCurrentCategory}: any) {
     };
 
   return (
-    <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', width: 172, position: 'fixed', height: '100vh', marginTop: '64px' }}>
+    <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', width: 172, position: 'fixed', height: '100vh', marginTop: '64px', zIndex: 1 }}>
         <Tabs
             orientation="vertical"
             value={value}

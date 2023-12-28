@@ -2,6 +2,6 @@ import React from 'react'
 
 export const ProductCard = () => {
     return (
-        <div></div>
+        <div>test</div>
     )
 }
