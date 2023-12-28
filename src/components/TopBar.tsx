@@ -72,11 +72,11 @@ interface GoodInfo {
 interface ProductsArray {
     favourites: GoodInfo[]
     cart: GoodInfo[]
-    handleOpenCartModal: any
+    setCartModalOpen: any
 }
 
 
-export function TopBar({favourites, cart, handleOpenCartModal}: ProductsArray) {
+export function TopBar({favourites, cart, setCartModalOpen}: ProductsArray) {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
 
@@ -109,7 +109,7 @@ export function TopBar({favourites, cart, handleOpenCartModal}: ProductsArray) {
       
     >
       <MenuItem>
-        <IconButton onClick={handleOpenCartModal} size="large" aria-label="show 4 new mails" color="inherit">
+        <IconButton onClick={() => {setCartModalOpen(true)}} size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={cart.length} color="error">
             <ShoppingBagOutlinedIcon />
           </Badge>
@@ -155,7 +155,7 @@ export function TopBar({favourites, cart, handleOpenCartModal}: ProductsArray) {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton onClick={handleOpenCartModal} size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton onClick={() => {setCartModalOpen(true)}} size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={cart.length} color="error">
                 <ShoppingBagOutlinedIcon />
               </Badge>

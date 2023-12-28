@@ -96,7 +96,7 @@ export function Product({ goods, favourites, setFavourites, cart, setCart, all}:
             </div>
           <CardContent style={{maxWidth: '80%'}}>
             <Typography variant="h5" component="div">
-              <Link to='/product'>{goods.title}</Link>
+              <Link to={`/product/${goods.id}`}>{goods.title}</Link>
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
               Цена: {goods.price}

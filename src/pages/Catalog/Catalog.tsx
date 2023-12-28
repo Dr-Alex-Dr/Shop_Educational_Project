@@ -19,23 +19,9 @@ interface GoodInfo {
     }
 }
 
-export function Catalog() {
+export function Catalog({isCartModalOpen, setCartModalOpen, setCart, cart, setFavourites, favourites}: any) {
     const [goods, setGoods] = useState<GoodInfo[]>([])
     const [currentCategory, setCurrentCategory] = useState('')
-
-    const [favourites, setFavourites] = useState<GoodInfo[]>([])
-    const [cart, setCart] = useState<GoodInfo[]>([])
-
-    const [isCartModalOpen, setCartModalOpen] = useState(false);
-
-    const handleOpenCartModal = () => {
-      setCartModalOpen(true);
-    };
-  
-    const handleCloseCartModal = () => {
-      setCartModalOpen(false);
-    };
-
 
     useEffect(() => {
         const storedfavourites = localStorage.getItem('favourite');
@@ -64,8 +50,7 @@ export function Catalog() {
 
     return (
         <div>
-            <CartModal open={isCartModalOpen} onClose={handleCloseCartModal} cartItems={cart} setCart={setCart}/>
-            <TopBar favourites={favourites} cart={cart} handleOpenCartModal={handleOpenCartModal}/>
+            <CartModal open={isCartModalOpen} setCartModalOpen={setCartModalOpen} cartItems={cart} setCart={setCart}/>   
             <div style={{display: 'flex'}}>
                 <Categories setCurrentCategory={setCurrentCategory}/>
                 

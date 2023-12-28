@@ -24,7 +24,7 @@ interface GoodInfo {
 
 interface CartModalProps {
   open: boolean;
-  onClose: () => void;
+  setCartModalOpen: any,
   cartItems: GoodInfo[];
   setCart: any
 }
@@ -45,11 +45,11 @@ function scliceText(text: string) {
 
 
 
-export function CartModal({ open, onClose, cartItems, setCart }: CartModalProps) {
+export function CartModal({ open, setCartModalOpen, cartItems, setCart }: CartModalProps) {
     const uniqueIds = new Set();
 
   return (
-    <Dialog open={open} onClose={onClose} >
+    <Dialog open={open} onClose={() => {setCartModalOpen(false)}} >
       <DialogTitle>Корзина</DialogTitle>
       <DialogContent>
         {cartItems.map((item) => {
@@ -97,7 +97,7 @@ export function CartModal({ open, onClose, cartItems, setCart }: CartModalProps)
         })}
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose} color="primary">
+        <Button onClick={() => {setCartModalOpen(false)}} color="primary">
           Закрыть
         </Button>
       </DialogActions>
