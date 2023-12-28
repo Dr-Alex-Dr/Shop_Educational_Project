@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/Shop_Educational_Project/static/js/main.12f1de75.js",
+    "main.js": "/Shop_Educational_Project/static/js/main.db6c3130.js",
     "index.html": "/Shop_Educational_Project/index.html",
-    "main.12f1de75.js.map": "/Shop_Educational_Project/static/js/main.12f1de75.js.map"
+    "main.db6c3130.js.map": "/Shop_Educational_Project/static/js/main.db6c3130.js.map"
   },
   "entrypoints": [
-    "static/js/main.12f1de75.js"
+    "static/js/main.db6c3130.js"
   ]
 }
