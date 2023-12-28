@@ -31,7 +31,7 @@ function scliceText(text: string) {
     }
   }
 
-export function Product({ goods, favourites, setFavourites, cart, setCart, all}: any) {
+export function Product({ goods, favourites, setFavourites, cart, setCart, all, setGoodId}: any) {
     const [cartButton, setCartButton] = useState(false)
     const [favouritesButton, setfavouritesButton] = useState(false)
 
@@ -96,7 +96,7 @@ export function Product({ goods, favourites, setFavourites, cart, setCart, all}:
             </div>
           <CardContent style={{maxWidth: '80%'}}>
             <Typography variant="h5" component="div">
-              <Link to={`/product/${goods.id}`}>{goods.title}</Link>
+              <Link to={`/product/${goods.id}`} onClick={( ) => {setGoodId(goods.id)}}>{goods.title}</Link>
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
               Цена: {goods.price}

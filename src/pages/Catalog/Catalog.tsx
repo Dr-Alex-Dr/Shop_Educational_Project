@@ -19,7 +19,7 @@ interface GoodInfo {
     }
 }
 
-export function Catalog({isCartModalOpen, setCartModalOpen, setCart, cart, setFavourites, favourites}: any) {
+export function Catalog({isCartModalOpen, setCartModalOpen, setCart, cart, setFavourites, favourites, setGoodId}: any) {
     const [goods, setGoods] = useState<GoodInfo[]>([])
     const [currentCategory, setCurrentCategory] = useState('')
 
@@ -70,6 +70,7 @@ export function Catalog({isCartModalOpen, setCartModalOpen, setCart, cart, setFa
                             cart={cart}
                             setCart={setCart}
                 
+                            setGoodId={setGoodId}
                         />
                     
                     ))

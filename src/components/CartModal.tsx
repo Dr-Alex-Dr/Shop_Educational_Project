@@ -45,7 +45,7 @@ function scliceText(text: string) {
 
 
 
-export function CartModal({ open, setCartModalOpen, cartItems, setCart }: CartModalProps) {
+export function CartModal({ open, setCartModalOpen, cartItems, setCart}: CartModalProps) {
     const uniqueIds = new Set();
 
   return (

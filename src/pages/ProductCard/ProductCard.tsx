@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Product } from '../../components/Product';
+import { CartModal } from '../../components/CartModal';
 
 
-export function ProductCard({ favourites, setFavourites, cart, setCart, all}: any) {
+export function ProductCard({ favourites, setFavourites, cart, setCart, isCartModalOpen, setCartModalOpen, goodId}: any) {
     const [good, setGood] = useState();
 
     useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/${1}`)
+        fetch(`https://fakestoreapi.com/products/${goodId}`)
         .then(res => {
             return res.json()
         })
@@ -18,6 +19,7 @@ export function ProductCard({ favourites, setFavourites, cart, setCart, all}: an
 
     return (
         <div style={{paddingTop: 100}}>
+            <CartModal open={isCartModalOpen} setCartModalOpen={setCartModalOpen} cartItems={cart} setCart={setCart}/>
             {
                good != undefined ? (
                 <Product goods={good} favourites={favourites} setFavourites={setFavourites} cart={cart} setCart={setCart} all={[]}/>
