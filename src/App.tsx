@@ -3,7 +3,7 @@ import { Catalog } from './pages/Catalog/Catalog';
 
 function App() {
   return (
-    <div>
+    <div >
       <Catalog/>
     </div>
   );

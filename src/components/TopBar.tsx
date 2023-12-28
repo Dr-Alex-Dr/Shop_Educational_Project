@@ -85,6 +85,7 @@ export function TopBar() {
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
+      
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
@@ -110,7 +111,7 @@ export function TopBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, position: 'fixed', width: '100%'}}>
       <AppBar position="static">
         <Toolbar>
           
