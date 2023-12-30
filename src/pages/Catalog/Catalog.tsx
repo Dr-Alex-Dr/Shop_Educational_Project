@@ -2,25 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { TopBar } from '../../components/TopBar'
 import { Categories } from '../../components/Categories'
 import { experimentalStyled as styled } from '@mui/material/styles';
-import { Product } from '../../components/Product';
 import { CartModal } from '../../components/CartModal';
+import Product from '../../components/Product/Product';
+import { IGoodInfo } from '../../interfaces';
 
-
-interface GoodInfo {
-    id: number,
-    title: string,
-    price: number,
-    description: string,
-    category: string,
-    image: string,
-    rating: {
-        rate: number,
-        count: number
-    }
-}
 
 export function Catalog({isCartModalOpen, setCartModalOpen, setCart, cart, setFavourites, favourites, setGoodId}: any) {
-    const [goods, setGoods] = useState<GoodInfo[]>([])
+    const [goods, setGoods] = useState<IGoodInfo[]>([])
     const [currentCategory, setCurrentCategory] = useState('')
 
     useEffect(() => {
@@ -51,26 +39,23 @@ export function Catalog({isCartModalOpen, setCartModalOpen, setCart, cart, setFa
     return (
         <div>
             <CartModal open={isCartModalOpen} setCartModalOpen={setCartModalOpen} cartItems={cart} setCart={setCart}/>   
-            <div style={{display: 'flex'}}>
+            <div style={{}}>
                 <Categories setCurrentCategory={setCurrentCategory}/>
                 
                 <div style={{display: 'flex', flexDirection: 'column', padding: '100px 30px 0 200px', width: '100%'}}>
                 {
-                    goods && goods.map((item, index) => (
-                        
-                            <Product 
-                            all={goods}
+                    goods && goods.map((item, index) => (    
+                        <Product 
+                        key={index}
+                        good={item}
+                        goods={goods}
+            
+                        favourites={favourites} 
+                        setFavourites={setFavourites}
+            
+                        cart={cart}
+                        setCart={setCart}
 
-                            key={index}
-                            goods={item}
-                
-                            favourites={favourites} 
-                            setFavourites={setFavourites}
-                
-                            cart={cart}
-                            setCart={setCart}
-                
-                            setGoodId={setGoodId}
                         />
                     
                     ))

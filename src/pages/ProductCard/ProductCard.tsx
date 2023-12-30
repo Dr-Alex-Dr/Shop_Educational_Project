@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Product } from '../../components/Product';
 import { CartModal } from '../../components/CartModal';
+import Product from '../../components/Product/Product';
 
 
 export function ProductCard({ favourites, setFavourites, cart, setCart, isCartModalOpen, setCartModalOpen, goodId}: any) {
@@ -19,13 +19,13 @@ export function ProductCard({ favourites, setFavourites, cart, setCart, isCartMo
 
     return (
         <div style={{paddingTop: 100}}>
-            <CartModal open={isCartModalOpen} setCartModalOpen={setCartModalOpen} cartItems={cart} setCart={setCart}/>
+            {/* <CartModal open={isCartModalOpen} setCartModalOpen={setCartModalOpen} cartItems={cart} setCart={setCart}/>
             {
                good != undefined ? (
-                <Product goods={good} favourites={favourites} setFavourites={setFavourites} cart={cart} setCart={setCart} all={[]}/>
+                <Product good={good} favourites={favourites} setFavourites={setFavourites} cart={cart} setCart={setCart} />
                ) : (<></>)
             }
-            
+             */}
         </div>
     )
 };

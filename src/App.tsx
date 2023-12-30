@@ -26,11 +26,13 @@ function App() {
   const [goodId, setGoodId] = useState(1);
 
   return (
-    <Router>
-      <TopBar favourites={favourites} cart={cart} setCartModalOpen={setCartModalOpen}/>
-        <Route path="/" exact render={(props)=><Catalog {...props} isCartModalOpen={isCartModalOpen} setCartModalOpen={setCartModalOpen} favourites={favourites} setFavourites={setFavourites} cart={cart} setCart={setCart} setGoodId={setGoodId}/>}/>
-        <Route path="/product" render={(props)=><ProductCard {...props} favourites={favourites} setFavourites={setFavourites} cart={cart} setCart={setCart} isCartModalOpen={isCartModalOpen} setCartModalOpen={setCartModalOpen} goodId={goodId}/>}/>
-    </Router>
+    <div style={{maxWidth: 1170}}>
+      <Router>
+        <TopBar favourites={favourites} cart={cart} setCartModalOpen={setCartModalOpen}/>
+          <Route path="/Shop_Educational_Project/" exact render={(props)=><Catalog {...props} isCartModalOpen={isCartModalOpen} setCartModalOpen={setCartModalOpen} favourites={favourites} setFavourites={setFavourites} cart={cart} setCart={setCart} setGoodId={setGoodId}/>}/>
+          <Route path="/Shop_Educational_Project/product" render={(props)=><ProductCard {...props} favourites={favourites} setFavourites={setFavourites} cart={cart} setCart={setCart} isCartModalOpen={isCartModalOpen} setCartModalOpen={setCartModalOpen} goodId={goodId}/>}/>
+      </Router>
+    </div>
   );
 }
 
