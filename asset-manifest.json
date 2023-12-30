@@ -1,10 +1,15 @@
 {
   "files": {
-    "main.js": "/Shop_Educational_Project/static/js/main.db6c3130.js",
+    "main.css": "/Shop_Educational_Project/static/css/main.bcb45b72.chunk.css",
+    "main.js": "/Shop_Educational_Project/static/js/main.9dcca6f0.chunk.js",
+    "main.js.map": "/Shop_Educational_Project/static/js/main.9dcca6f0.chunk.js.map",
+    "runtime~main.js": "/Shop_Educational_Project/static/js/runtime~main.50330bc2.js",
+    "runtime~main.js.map": "/Shop_Educational_Project/static/js/runtime~main.50330bc2.js.map",
+    "static/js/2.1f28620c.chunk.js": "/Shop_Educational_Project/static/js/2.1f28620c.chunk.js",
+    "static/js/2.1f28620c.chunk.js.map": "/Shop_Educational_Project/static/js/2.1f28620c.chunk.js.map",
     "index.html": "/Shop_Educational_Project/index.html",
-    "main.db6c3130.js.map": "/Shop_Educational_Project/static/js/main.db6c3130.js.map"
-  },
-  "entrypoints": [
-    "static/js/main.db6c3130.js"
-  ]
+    "precache-manifest.c89602ae24bf7f7b4dac867c1ca148f6.js": "/Shop_Educational_Project/precache-manifest.c89602ae24bf7f7b4dac867c1ca148f6.js",
+    "service-worker.js": "/Shop_Educational_Project/service-worker.js",
+    "static/css/main.bcb45b72.chunk.css.map": "/Shop_Educational_Project/static/css/main.bcb45b72.chunk.css.map"
+  }
 }
