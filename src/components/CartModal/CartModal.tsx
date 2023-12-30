@@ -2,7 +2,6 @@ import React, {Dispatch, SetStateAction} from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -12,31 +11,22 @@ import { IGoodInfo } from '../../interfaces';
 import styles from './CartModal.module.css'
 
 interface CartModalProps {
-  open: boolean;
+  cartModalOpen: boolean;
   setCartModalOpen: Dispatch<SetStateAction<boolean>>,
   cart: IGoodInfo[];
   setCart: Dispatch<SetStateAction<IGoodInfo[]>>
 }
 
-
-function scliceText(text: string) {
-    if (text.length <= 30) {
-      return text;
-    } else {
-      return text.slice(0, 30) + '...';
-    }
-  }
-
 const CartModal = (props: CartModalProps) => {
   const { 
-    open, 
+    cartModalOpen, 
     setCartModalOpen, 
     cart, 
     setCart
   } = props
 
-  function countItemsWithId(arr: IGoodInfo[], targetId: number): number {
-    const filteredArray = arr.filter(item => item.id === targetId);
+  function countItemsWithId(targetId: number): number {
+    const filteredArray = cart.filter(item => item.id === targetId);
     return filteredArray.length;
   }
 
@@ -56,10 +46,15 @@ const CartModal = (props: CartModalProps) => {
     localStorage.setItem('cart', JSON.stringify([...cart, item]));
   }
 
+  function calculatesСostFromQuantity(item: IGoodInfo): number{
+    return parseFloat((item.price * countItemsWithId(item.id)).toFixed(2))
+  }
+
+
   const uniqueIds = new Set();
 
   return (
-    <Dialog open={open} onClose={() => {setCartModalOpen(false)}}>
+    <Dialog open={cartModalOpen} onClose={() => {setCartModalOpen(false)}}>
       <DialogTitle>Корзина</DialogTitle>
       <DialogContent>
         {cart.map((item) => {
@@ -69,14 +64,14 @@ const CartModal = (props: CartModalProps) => {
           return (
             <div className={styles.container} key={item.id}>
               <img className={styles.image} src={item.image} alt={item.title}/>
-              <p>{scliceText(item.title)}</p>     
+              <p>{item.title}</p>     
               <div className={styles.priceСontainer}>
-                <p>Цена: {item.price * countItemsWithId(cart, item.id)}</p>
+                <p>Цена: {calculatesСostFromQuantity(item)}</p>
                 <div className={styles.quantityContainer}>          
                   <IconButton onClick={() => {handleAddProduct(item)}}>
                     <RemoveIcon />
                   </IconButton>
-                  {countItemsWithId(cart, item.id)}
+                  {countItemsWithId(item.id)}
                   <IconButton onClick={() => {handleRemoveProduct(item)}}>
                     <AddIcon />
                   </IconButton>

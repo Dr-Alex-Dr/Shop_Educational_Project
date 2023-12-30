@@ -1,0 +1,43 @@
+.container {
+    flex-grow: 1;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.search {  
+    margin-left: 0;
+    width: 100%;
+    position: relative;
+    border-radius: var(--theme-shape-borderRadius);
+    background-color: var(--theme-palette-common-white, 0.15);
+}
+.iconWrapper {
+    padding-left: 20px;
+    height: 100%;
+    position: absolute;
+    pointer-events: 'none';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputBase {
+    color: inherit;
+    padding: 10px;
+    padding-left: 55px;
+    width: 100%;
+}
+
+.input {
+    color: inherit;
+    width: 100%;
+}
+  
+.appBar {
+    position: static;
+}
+
+.saveContainer {
+    display: flex;
+}

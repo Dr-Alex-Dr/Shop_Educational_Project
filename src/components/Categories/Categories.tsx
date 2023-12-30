@@ -32,14 +32,14 @@ const Categories = ({setCurrentCategory}: ICurrentCategory) => {
             onChange={handleChange}
             aria-label="Vertical tabs example"
             className={styles.tabs}>
-                
+
             <Tab label='All' onClick={() => {setCurrentCategory('/')}}/>
             {
                 categories.map((item, index) => (
                     <Tab key={index} label={item} onClick={() => {setCurrentCategory(`/category/${item}`)}}/>
                 ))
             }
-      </Tabs>
+        </Tabs>
     </Box>
   );
 }
