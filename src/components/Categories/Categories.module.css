@@ -1,0 +1,13 @@
+.categories {
+    flex-grow: 1;
+    display: flex;
+    width: 172px;
+    position: fixed;
+    height: 100vh;
+    margin-top: 64px;
+    z-index: 1;
+}
+
+.tabs {
+    border-right: 1px solid divider;
+}

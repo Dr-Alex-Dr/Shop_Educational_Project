@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { CartModal } from '../../components/CartModal';
 import Product from '../../components/Product/Product';
 
 

@@ -1,0 +1,39 @@
+/* CartModal.module.css */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+    margin-bottom: 20px;
+  }
+  
+  .image {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  
+  .itemTitle {
+    /* Add styles for the title */
+  }
+  
+  .price-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .price {
+    /* Add styles for the price */
+  }
+  
+  .quantity-container {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Add any additional styles as needed */
+  

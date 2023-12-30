@@ -1,41 +1,41 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, Dispatch, SetStateAction,} from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import axios from 'axios';
+import styles from './Categories.module.css'
 
+interface ICurrentCategory {
+    setCurrentCategory: Dispatch<SetStateAction<string>>
+}
 
-export function Categories({setCurrentCategory}: any) {
+const Categories = ({setCurrentCategory}: ICurrentCategory) => {
     const [value, setValue] = useState(0);
     const [categories, setCategories] = useState<string[]>([])
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products/categories')
-        .then((res) => {
-            return res.json()
-        })
-        .then(res => {
-            setCategories(res)
-        })
+        axios.get('https://fakestoreapi.com/products/categories')
+        .then(res => res.data)
+        .then(res => setCategories(res))
+        .catch(err => console.log(err))
     }, [])
 
-
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
-        
+        setValue(newValue);      
     };
 
   return (
-    <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', width: 172, position: 'fixed', height: '100vh', marginTop: '64px', zIndex: 1 }}>
+    <Box className={styles.categories}>
         <Tabs
             orientation="vertical"
             value={value}
             onChange={handleChange}
             aria-label="Vertical tabs example"
-            sx={{ borderRight: 1, borderColor: 'divider' }}
-        >
+            className={styles.tabs}>
+                
             <Tab label='All' onClick={() => {setCurrentCategory('/')}}/>
             {
-                categories.map((item: any, index: any) => (
+                categories.map((item, index) => (
                     <Tab key={index} label={item} onClick={() => {setCurrentCategory(`/category/${item}`)}}/>
                 ))
             }
@@ -43,3 +43,5 @@ export function Categories({setCurrentCategory}: any) {
     </Box>
   );
 }
+
+export default Categories

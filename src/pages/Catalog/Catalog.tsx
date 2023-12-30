@@ -1,44 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import { TopBar } from '../../components/TopBar'
-import { Categories } from '../../components/Categories'
-import { experimentalStyled as styled } from '@mui/material/styles';
-import { CartModal } from '../../components/CartModal';
+import Categories from '../../components/Categories/Categories';
+import CartModal from '../../components/CartModal/CartModal';
 import Product from '../../components/Product/Product';
 import { IGoodInfo } from '../../interfaces';
+import axios from 'axios';
 
 
 export function Catalog({isCartModalOpen, setCartModalOpen, setCart, cart, setFavourites, favourites, setGoodId}: any) {
     const [goods, setGoods] = useState<IGoodInfo[]>([])
-    const [currentCategory, setCurrentCategory] = useState('')
+    const [currentCategory, setCurrentCategory] = useState<string>('')
 
     useEffect(() => {
         const storedfavourites = localStorage.getItem('favourite');
+
         if (storedfavourites) {
             setFavourites(JSON.parse(storedfavourites));
         }
 
-        fetch(`https://fakestoreapi.com/products`)
-        .then((res) => {
-            return res.json()
-        })
-        .then((res) => {
-            setGoods(res)
-        })
-    }, [])
-
-    useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/${currentCategory}`)
-        .then((res) => {
-            return res.json()
-        })
-        .then((res) => {
-            setGoods(res)
-        })     
+        axios.get(`https://fakestoreapi.com/products${currentCategory}`)
+        .then(res => res.data)
+        .then(res => setGoods(res))
+        .catch(err => console.log('Нет данных'))
+       
     }, [currentCategory])
 
     return (
-        <div>
-            <CartModal open={isCartModalOpen} setCartModalOpen={setCartModalOpen} cartItems={cart} setCart={setCart}/>   
+        <div> 
             <div style={{}}>
                 <Categories setCurrentCategory={setCurrentCategory}/>
                 
