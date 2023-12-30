@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Shop_Educational_Project/static/css/main.bcb45b72.chunk.css",
-    "main.js": "/Shop_Educational_Project/static/js/main.9dcca6f0.chunk.js",
-    "main.js.map": "/Shop_Educational_Project/static/js/main.9dcca6f0.chunk.js.map",
-    "runtime~main.js": "/Shop_Educational_Project/static/js/runtime~main.50330bc2.js",
-    "runtime~main.js.map": "/Shop_Educational_Project/static/js/runtime~main.50330bc2.js.map",
-    "static/js/2.1f28620c.chunk.js": "/Shop_Educational_Project/static/js/2.1f28620c.chunk.js",
-    "static/js/2.1f28620c.chunk.js.map": "/Shop_Educational_Project/static/js/2.1f28620c.chunk.js.map",
-    "index.html": "/Shop_Educational_Project/index.html",
-    "precache-manifest.c89602ae24bf7f7b4dac867c1ca148f6.js": "/Shop_Educational_Project/precache-manifest.c89602ae24bf7f7b4dac867c1ca148f6.js",
-    "service-worker.js": "/Shop_Educational_Project/service-worker.js",
-    "static/css/main.bcb45b72.chunk.css.map": "/Shop_Educational_Project/static/css/main.bcb45b72.chunk.css.map"
+    "main.css": "/static/css/main.bcb45b72.chunk.css",
+    "main.js": "/static/js/main.9dcca6f0.chunk.js",
+    "main.js.map": "/static/js/main.9dcca6f0.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.1f28620c.chunk.js": "/static/js/2.1f28620c.chunk.js",
+    "static/js/2.1f28620c.chunk.js.map": "/static/js/2.1f28620c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.a9f2a86ffcc62712af1434a83899b9ce.js": "/precache-manifest.a9f2a86ffcc62712af1434a83899b9ce.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.bcb45b72.chunk.css.map": "/static/css/main.bcb45b72.chunk.css.map"
   }
 }
