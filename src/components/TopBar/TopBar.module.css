@@ -6,6 +6,7 @@
 }
 
 .search {  
+    color: #fff;
     margin-left: 0;
     width: 100%;
     position: relative;
@@ -23,15 +24,16 @@
 }
 
 .inputBase {
-    color: inherit;
     padding: 10px;
     padding-left: 55px;
     width: 100%;
+    color: #fff !important;
 }
 
 .input {
     color: inherit;
     width: 100%;
+    color: #fff;
 }
   
 .appBar {
@@ -40,4 +42,9 @@
 
 .saveContainer {
     display: flex;
+}
+
+.linkHome {
+    color: #fff;
+    text-decoration: none;
 }

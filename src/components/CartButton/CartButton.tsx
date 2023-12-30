@@ -33,20 +33,21 @@ const CartButton = (props: ICartInfo) => {
         setCart(newCartProducts);
         localStorage.setItem('cart', JSON.stringify(newCartProducts));
     }
+    
+    function handleClick() {
+        cartButton ? handleRemoveFromCart() : handleAddProductToCart()
+        setCartButton(!cartButton)
+    }
 
     useEffect(() => {
-        cartButton ? handleAddProductToCart() : handleRemoveFromCart()
-    }, [cartButton])
-
-    useEffect(() => {
-        const isCart = cart.some((item: any) => item.id === good.id);
-        setCartButton(isCart)
+        const isCart = cart.some(item => item.id === good.id);
+        setCartButton(isCart)    
     }, [goods])
 
     return (
         <IconButton 
             color="primary"
-            onClick={() => {setCartButton(!cartButton)}}>
+            onClick={() => {handleClick()}}>
             <ShoppingBagOutlinedIcon  
                 className={classNames(styles.cartIcon, {[styles.active]: cartButton})}/>
         </IconButton>      

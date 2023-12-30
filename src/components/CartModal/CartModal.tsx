@@ -50,7 +50,6 @@ const CartModal = (props: CartModalProps) => {
     return parseFloat((item.price * countItemsWithId(item.id)).toFixed(2))
   }
 
-
   const uniqueIds = new Set();
 
   return (
@@ -63,7 +62,9 @@ const CartModal = (props: CartModalProps) => {
 
           return (
             <div className={styles.container} key={item.id}>
-              <img className={styles.image} src={item.image} alt={item.title}/>
+              <div className={styles.imageContainer}>
+                <img className={styles.image} src={item.image} alt={item.title}/>
+              </div>
               <p>{item.title}</p>     
               <div className={styles.priceСontainer}>
                 <p>Цена: {calculatesСostFromQuantity(item)}</p>

@@ -34,20 +34,20 @@ const FavouritesButton = (props: IFavouritesInfo) => {
         localStorage.setItem('favourites', JSON.stringify(newFavouritesProducts));
     }
 
-    useEffect(() => {
-        favouritesButton ? handleAddProductToFavorites() : handleRemoveFromFavorites()
-    }, [favouritesButton])
+    function handleClick() {
+        favouritesButton ? handleRemoveFromFavorites() : handleAddProductToFavorites()
+        setfavouritesButton(!favouritesButton)
+    }
 
     useEffect(() => {
         const isFavourites = favourites.some((item: any) => item.id === good.id);
-        setfavouritesButton(isFavourites)
+        setfavouritesButton(isFavourites)  
     }, [goods])
-
 
     return (
         <IconButton 
             color="primary" 
-            onClick={() => {setfavouritesButton(!favouritesButton)}}>
+            onClick={() => {handleClick()}}>
             <FavoriteBorderOutlinedIcon 
                 className={classNames(styles.favoriteIcon, {[styles.active]: favouritesButton})}/>
         </IconButton>

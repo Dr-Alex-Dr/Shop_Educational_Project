@@ -24,7 +24,7 @@ const Categories = ({setCurrentCategory}: ICurrentCategory) => {
         setValue(newValue);      
     };
 
-  return (
+    return (
     <Box className={styles.categories}>
         <Tabs
             orientation="vertical"

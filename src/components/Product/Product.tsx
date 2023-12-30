@@ -39,7 +39,7 @@ const Product = (props: IProduct) => {
 
       <CardContent className={styles.cardContent}>
         <Typography variant="h5" component="div">
-          <Link to={`/Shop_Educational_Project/product/${good.id}`}>{good.title}</Link>
+          <Link to={`/product/${good.id}`}>{good.title}</Link>
         </Typography>
         <Typography variant="subtitle1" color="text.secondary">
           Цена: {good.price}

@@ -12,6 +12,7 @@ import styles from "./TopBar.module.css"
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import CartModal from '../CartModal/CartModal';
+import { Link } from 'react-router-dom';
 
 
 interface ProductsArray {
@@ -38,7 +39,7 @@ const TopBar = (props: ProductsArray) => {
       <AppBar className={styles.appBar}>
         <Toolbar>     
           <Typography variant="h6">
-            ShopEProject
+            <Link className={styles.linkHome} to={'/'}>ShopEProject</Link>
           </Typography>
           <div className={styles.search}>
             <div className={styles.iconWrapper}>
