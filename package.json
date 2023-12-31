@@ -1,7 +1,7 @@
 {
   "name": "shop_education_project",
   "version": "0.1.0",
-  "homepage": "https://Dr-Alex-Dr.github.io/",
+  "homepage": "https://Dr-Alex-Dr.github.io/Shop_Educational_Project/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.3",
